@@ -10,14 +10,9 @@ const App = () => {
     const [places, setPlaces] = useState([]);
 
     const [coordinates, setCoordinates] = useState({});
-<<<<<<< HEAD
-    const [bounds, setBounds] = useState(null); // these bounds are the bottom left and top right coordinates
-
-=======
     const [bounds, setBounds ] = useState(null);
     
     // Get user's location when launching the app:
->>>>>>> fixed_branch
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
             setCoordinates({ lat: latitude, lng: longitude });
