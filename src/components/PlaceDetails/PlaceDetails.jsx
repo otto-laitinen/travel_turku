@@ -7,9 +7,19 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './PlaceDetailsStyles';
 
 const PlaceDetails = ({ place }) => {
-    console.log(place);
+    const classes = useStyles();
     return (
-        <h1>{place.name}</h1>
+        <Card elevation={6}>
+            <CardMedia 
+                style={{ height: 350 }}
+                // If there is no image, use this 'stock' image from this address:
+                image={place.photo ? place.photo.images.large.url: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg' }
+                title={place.name}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5">{place.name}</Typography>
+            </CardContent>
+        </Card>
     )
 }
 
