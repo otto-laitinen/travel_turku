@@ -10,22 +10,33 @@ const App = () => {
     const [places, setPlaces] = useState([]);
 
     const [coordinates, setCoordinates] = useState({});
+<<<<<<< HEAD
     const [bounds, setBounds] = useState(null); // these bounds are the bottom left and top right coordinates
 
+=======
+    const [bounds, setBounds ] = useState(null);
+    
+    // Get user's location when launching the app:
+>>>>>>> fixed_branch
     useEffect(() => {
-        getPlacesData() // this function (in index.js) returns the restaurant's data
-            .then((data) => {
-                console.log(data);
+        navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
+            setCoordinates({ lat: latitude, lng: longitude });
+        })
+    }, []);
+
+    useEffect(() => {
+        getPlacesData(bounds.sw, bounds.ne) // Returns restaurant's data (from index.js) 
+            .then((data) => {   // getPlacesData is an async function, hence the .then -method
                 setPlaces(data);
             })
-    }, []); // this dependency array is empty, so the code in this function block will only happen at the start of the application
+    }, [coordinates, bounds]);  // Dependency array. When coordinates / bounds change, this function runs again
     return (
         <>
             <CssBaseline />
             <Header />
             <Grid container spacing={3} style={{ width: '100%' }}>
                 <Grid item xs={12} md={4}>
-                    <List />
+                    <List places={ places }/>
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Map 
