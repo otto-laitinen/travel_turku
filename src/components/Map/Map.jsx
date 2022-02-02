@@ -10,7 +10,6 @@ const Map = ({ setCoordinates, setBounds, coordinates}) => {
     const classes = useStyles();
     // if the width of the device is > 600px, it is not considered a mobile device
     const isMobile = useMediaQuery('(min-width:600px)')
-    // const coordinates = { lat: 0, lng: 0 }
     return (
         <div className={classes.mapContainer}>
             <GoogleMapReact
@@ -26,7 +25,6 @@ const Map = ({ setCoordinates, setBounds, coordinates}) => {
                 }}
                 onChildClick={''}
             >
-
             </GoogleMapReact>
         </div>
     )

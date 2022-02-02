@@ -12,26 +12,19 @@ const App = () => {
     const [coordinates, setCoordinates] = useState({});
     const [bounds, setBounds ] = useState(null);
     
-    // This is for getting the user's location when launching the app
+    // Get user's location when launching the app:
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
             setCoordinates({ lat: latitude, lng: longitude });
         })
-    }, []); // The dependency array is empty, so this will only run once
+    }, []);
 
-    // The useEffect Hook allows you to perform side effects in your components.
-    // Some examples of side effects are: fetching data, directly updating the DOM, and timers.
     useEffect(() => {
-        console.log(coordinates, bounds);
-
-        getPlacesData() // this function (in index.js) returns the restaurant's data
+        getPlacesData() // Returns restaurant's data (from index.js) 
             .then((data) => {   // this then method is here, because getPlacesData is an async function
-                console.log(data);
                 setPlaces(data);
             })
-    // the function runs itself again, when coordinates and bounds get new values
-    // if this dependency array below was empty, the code would only run once when running the program
-    }, [coordinates, bounds]); 
+    }, [coordinates, bounds]);  // dependency array. When coordinates / bounds change, this function runs again
     return (
         <>
             <CssBaseline />
