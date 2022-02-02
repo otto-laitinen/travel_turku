@@ -9,7 +9,8 @@ import Map from "./components/Map/Map";
 const App = () => {
     const [places, setPlaces] = useState([]);
 
-    const[coordinates, setCoordinates] = useState({});
+    const [coordinates, setCoordinates] = useState({});
+    const [bounds, setBounds ] = useState(null);
 
     // The useEffect Hook allows you to perform side effects in your components.
     // Some examples of side effects are: fetching data, directly updating the DOM, and timers.
@@ -29,7 +30,11 @@ const App = () => {
                     <List />
                 </Grid>
                 <Grid item xs={12} md={8}>
-                    <Map />
+                    <Map 
+                        setCoordinates={setCoordinates}
+                        setBounds={setBounds}
+                        coordinates={coordinates}
+                    />
                 </Grid>
             </Grid>
         </>
