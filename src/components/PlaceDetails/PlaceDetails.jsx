@@ -18,6 +18,14 @@ const PlaceDetails = ({ place }) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5">{place.name}</Typography>
+                <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle1">Hintaluokka</Typography>
+                    <Typography gutterBottom variant="subtitle1">{place.price_level}</Typography>
+                </Box>
+                <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle1">Arvostelu</Typography>
+                    <Typography gutterBottom variant="subtitle1">{place.ranking}</Typography>
+                </Box>
             </CardContent>
         </Card>
     )
