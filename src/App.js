@@ -9,9 +9,13 @@ import Map from "./components/Map/Map";
 const App = () => {
     const [places, setPlaces] = useState([]);
 
+    const[coordinates, setCoordinates] = useState({});
+
+    // The useEffect Hook allows you to perform side effects in your components.
+    // Some examples of side effects are: fetching data, directly updating the DOM, and timers.
     useEffect(() => {
         getPlacesData() // this function (in index.js) returns the restaurant's data
-            .then((data) => {
+            .then((data) => {   // this then method is here, because getPlacesData is an async function
                 console.log(data);
                 setPlaces(data);
             })

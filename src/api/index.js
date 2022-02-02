@@ -3,8 +3,6 @@ import axios from 'axios'; // axios library helps with API calls / HTTP requests
 const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary';
 
 const options = {
-//   method: 'GET',
-//   url: 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary',
   params: {
     bl_latitude: '11.847676',
     tr_latitude: '12.838442',
@@ -17,18 +15,11 @@ const options = {
   }
 };
 
-// This piece of code is commented out, since the axios call is already at the bottom of this file
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
-
 // This asynchronous function is called in App.js
 export const getPlacesData = async () => {
     try {
         //request
-        const { data: { data }} = await axios.get(URL, options); // Axios call
+        const { data: { data } } = await axios.get(URL, options); // Axios call
         return data;
     } catch (error){
         console.log(error)
