@@ -5,22 +5,11 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 import useStyles from './ListStyles';
 
-const places = [
-    { name: 'Some place' },
-    { name: 'Some other place' },
-    { name: 'Some third place' },
-    { name: 'Some place' },
-    { name: 'Some other place' },
-    { name: 'Some third place' },
-    { name: 'Some place' },
-    { name: 'Some other place' },
-    { name: 'Some third place' }
-];
-
-const List = () => {
+const List = ({ places }) => {
     const classes = useStyles();
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
+
     return (
         <div className={classes.container}>
             <Typography variant='h4'>Ravintolat, hotellit ja nähtävyydet</Typography>
