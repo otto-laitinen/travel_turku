@@ -21,10 +21,10 @@ const App = () => {
 
     useEffect(() => {
         getPlacesData() // Returns restaurant's data (from index.js) 
-            .then((data) => {   // this then method is here, because getPlacesData is an async function
+            .then((data) => {   // getPlacesData is an async function, hence the .then -method
                 setPlaces(data);
             })
-    }, [coordinates, bounds]);  // dependency array. When coordinates / bounds change, this function runs again
+    }, [coordinates, bounds]);  // Dependency array. When coordinates / bounds change, this function runs again
     return (
         <>
             <CssBaseline />
