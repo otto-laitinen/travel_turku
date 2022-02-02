@@ -8,7 +8,6 @@ import useStyles from './MapStyles';
 
 const Map = ({ setCoordinates, setBounds, coordinates }) => {
     const classes = useStyles();
-    // if the width of the device is > 600px, it is not considered a mobile device
     const isMobile = useMediaQuery('(min-width:600px)')
 
     return (
@@ -22,7 +21,7 @@ const Map = ({ setCoordinates, setBounds, coordinates }) => {
                 options={''}
                 // This tells GoogleMapReact that the coordinates or bounds have changed:
                 onChange={(e) => {
-                    console.log(e);
+                    console.log("mitävittua");
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                 }}
                 onChildClick={''}
@@ -34,3 +33,4 @@ const Map = ({ setCoordinates, setBounds, coordinates }) => {
 }
 
 export default Map;
+
