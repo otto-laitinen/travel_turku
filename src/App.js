@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CssBaseline, Grid } from "@material-ui/core";
 
+import { getPlacesData } from "./api";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import Map from "./components/Map/Map";
 
 const App = () => {
+    const [places, setPlaces] = useState([]);
 
+    useEffect(() => {
+        getPlacesData() // this function (in index.js) returns the restaurant's data
+            .then((data) => {
+                console.log(data);
+                setPlaces(data);
+            })
+    }, []); // this dependency array is empty, so the code in this function block will only happen at the start of the application
     return (
         <>
             <CssBaseline />
